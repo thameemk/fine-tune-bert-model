@@ -2,6 +2,10 @@ from transformers import AutoTokenizer, BertForQuestionAnswering
 import torch
 
 """
+
+custom dataset
+training and testing [8:2]
+
 Tokenize and format input query
 Fine-tune BERT
 Predict action
