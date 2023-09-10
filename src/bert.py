@@ -1,6 +1,13 @@
 from transformers import AutoTokenizer, BertForQuestionAnswering
 import torch
 
+"""
+Tokenize and format input query
+Fine-tune BERT
+Predict action
+perform the action
+"""
+
 
 class ModelAndTokenizer:
     """
