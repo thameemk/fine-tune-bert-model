@@ -2,6 +2,7 @@ from transformers import AutoTokenizer, BertForQuestionAnswering
 import torch
 
 """
+#todo
 
 custom dataset
 training and testing [8:2]
