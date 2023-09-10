@@ -8,6 +8,8 @@ transformers = "*"
 torch = "*"
 wikipedia = "*"
 sendgrid = "*"
+fastapi = "*"
+uvicorn = "*"
 
 [dev-packages]
 

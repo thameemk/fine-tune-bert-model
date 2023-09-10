@@ -1,6 +1,8 @@
 from transformers import AutoTokenizer, BertForQuestionAnswering
 import torch
 
+from src.data.build_dataset import get_content_from_wikipedia
+
 """
 #todo
 
@@ -40,3 +42,10 @@ def query_result(query: str, context: str, tokenizer, model):
     answer = tokenizer.decode(predict_answer_tokens, skip_special_tokens=True)
 
     return answer
+
+
+if __name__ == '__main__':
+    cus_model = ModelAndTokenizer()
+    cus_model.load_model_and_tokenizer()
+    print(query_result(query="search for quantum mechanics", context=get_content_from_wikipedia("Quantum mechanics"),
+                       model=cus_model.model, tokenizer=cus_model.tokenizer))
