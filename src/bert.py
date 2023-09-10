@@ -44,8 +44,8 @@ def query_result(query: str, context: str, tokenizer, model):
     return answer
 
 
-if __name__ == '__main__':
+def get_query_search_result(query: str):
     cus_model = ModelAndTokenizer()
     cus_model.load_model_and_tokenizer()
-    print(query_result(query="search for quantum mechanics", context=get_content_from_wikipedia("Quantum mechanics"),
-                       model=cus_model.model, tokenizer=cus_model.tokenizer))
+    return query_result(query=query, context=get_content_from_wikipedia("Quantum mechanics"),
+                        model=cus_model.model, tokenizer=cus_model.tokenizer)
