@@ -1,8 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from src.bert import get_query_search_result
-
 
 class SearchQuery(BaseModel):
     query: str
@@ -23,5 +21,5 @@ def read_root(search_query: SearchQuery) -> SearchQueryResponse:
     return SearchQueryResponse(
         query=search_query.query,
         context=search_query.context,
-        result=get_query_search_result(search_query.query)
+        result=""
     )
