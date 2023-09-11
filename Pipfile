@@ -6,10 +6,11 @@ name = "pypi"
 [packages]
 transformers = "*"
 torch = "*"
-wikipedia = "*"
 sendgrid = "*"
 fastapi = "*"
 uvicorn = "*"
+pandas = "*"
+scikit-learn = "*"
 
 [dev-packages]
 
