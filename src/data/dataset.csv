@@ -1,0 +1,89 @@
+text,search,send,download,calculate,translate,call
+search for machine learning,1,0,0,0,0,0
+download the consolidated data,0,0,1,0,0,0
+send the doc to email,0,1,0,0,0,0
+search for cat pictures,1,0,0,0,0,0
+calculate monthly expenses,0,0,0,1,0,0
+translate the text to Spanish,0,0,0,0,1,0
+call mom,0,0,0,0,0,1
+search for cooking recipes,1,0,0,0,0,0
+download the software update,0,0,1,0,0,0
+send the report to manager,0,1,0,0,0,0
+search for weather forecast,1,0,0,0,0,0
+calculate the area of a triangle,0,0,0,1,0,0
+translate the document to French,0,0,0,0,1,0
+call customer support,0,0,0,0,0,1
+search for hiking trails,1,0,0,0,0,0
+download the presentation,0,0,1,0,0,0
+send the invoice to client,0,1,0,0,0,0
+search for movie reviews,1,0,0,0,0,0
+calculate the square root,0,0,0,1,0,0
+translate the text to German,0,0,0,0,1,0
+call a taxi,0,0,0,0,0,1
+search for travel destinations,1,0,0,0,0,0
+download the research paper,0,0,1,0,0,0
+send the contract to partner,0,1,0,0,0,0
+search for latest news,1,0,0,0,0,0
+calculate the discount,0,0,0,1,0,0
+translate the text to Chinese,0,0,0,0,1,0
+call a friend,0,0,0,0,0,1
+search for new job openings,1,0,0,0,0,0
+download the song,0,0,1,0,0,0
+send the message to team,0,1,0,0,0,0
+search for healthy recipes,1,0,0,0,0,0
+calculate the tip,0,0,0,1,0,0
+translate the text to Japanese,0,0,0,0,1,0
+call a colleague,0,0,0,0,0,1
+search for trending topics,1,0,0,0,0,0
+download the movie,0,0,1,0,0,0
+send the reminder to team,0,1,0,0,0,0
+search for historical facts,1,0,0,0,0,0
+calculate the interest rate,0,0,0,1,0,0
+translate the text to Italian,0,0,0,0,1,0
+call a family member,0,0,0,0,0,1
+search for trending fashion,1,0,0,0,0,0
+download the document,0,0,1,0,0,0
+send the invitation to event,0,1,0,0,0,0
+search for tech news,1,0,0,0,0,0
+calculate the exchange rate,0,0,0,1,0,0
+translate the text to Russian,0,0,0,0,1,0
+call a customer,0,0,0,0,0,1
+search for travel tips,1,0,0,0,0,0
+download the spreadsheet,0,0,1,0,0,0
+send the document to client,0,1,0,0,0,0
+search for restaurant reviews,1,0,0,0,0,0
+calculate the BMI,0,0,0,1,0,0
+translate the text to Portuguese,0,0,0,0,1,0
+call a support team,0,0,0,0,0,1
+search for DIY projects,1,0,0,0,0,0
+download the software manual,0,0,1,0,0,0
+send the report to supervisor,0,1,0,0,0,0
+search for travel deals,1,0,0,0,0,0
+calculate the mortgage payment,0,0,0,1,0,0
+translate the text to Dutch,0,0,0,0,1,0
+call a friend for advice,0,0,0,0,0,1
+search for tech gadgets,1,0,0,0,0,0
+download the user manual,0,0,1,0,0,0
+send the message to supervisor,0,1,0,0,0,0
+search for job interview tips,1,0,0,0,0,0
+calculate the tax,0,0,0,1,0,0
+translate the text to Korean,0,0,0,0,1,0
+call a colleague for help,0,0,0,0,0,1
+search for travel destinations,1,0,0,0,0,0
+download the research paper,0,0,1,0,0,0
+send the contract to partner,0,1,0,0,0,0
+search for latest fashion trends,1,0,0,0,0,0
+calculate the monthly budget,0,0,0,1,0,0
+translate the text to Arabic,0,0,0,0,1,0
+call a family member,0,0,0,0,0,1
+search for healthy recipes,1,0,0,0,0,0
+download the recipe book,0,0,1,0,0,0
+send the email to supervisor,0,1,0,0,0,0
+search for tech news,1,0,0,0,0,0
+calculate the distance,0,0,0,1,0,0
+translate the text to French,0,0,0,0,1,0
+call a support team,0,0,0,0,0,1
+search for DIY projects,1,0,0,0,0,0
+download the software manual,0,0,1,0,0,0
+send the report to manager,0,1,0,0,0,0
+search for travel deals,1,0,0
