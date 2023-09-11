@@ -40,7 +40,7 @@
 ### 5.Model Selection
     - Choose a suitable BERT model 
 ### 6.Fine-Tuning Of BERT Model 
-    - 
+    - Fine-Tune the BERT model on the training dataset
 ### 7.Evaluation
     - Evaluate the fine-tuned model on the test set.
 ### 8.Developing APIs & Deployment
