@@ -4,13 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-transformers = "*"
 torch = "*"
 sendgrid = "*"
 fastapi = "*"
 uvicorn = "*"
 pandas = "*"
 scikit-learn = "*"
+evaluate = "*"
+transformers = {extras = ["torch"], version = "*"}
+accelerate = "*"
 
 [dev-packages]
 
