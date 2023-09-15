@@ -30,9 +30,8 @@ def performance_analysis():
             'fine_tuned': ActionEnum(predicted_class_id_v2).name
         }
 
-    compare_results("send the documentation to the team")
-    compare_results("download the game from store")
-    compare_results("seach for healthy food")
+    return [compare_results("send the documentation to the team"), compare_results("download the game from store"),
+            compare_results("seach for healthy food"), compare_results("download open source github projects")]
 
 
 if __name__ == '__main__':
