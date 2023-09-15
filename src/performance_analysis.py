@@ -1,22 +1,38 @@
+import enum
+
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, BertForSequenceClassification, Trainer
 import torch
 
 
+class ActionEnum(enum.Enum):
+    SEARCH = 0
+    SEND = 1
+    DOWNLOAD = 2
+
+
 def performance_analysis():
-    tokenizer_v2 = AutoTokenizer.from_pretrained('search_action')
-    tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
-    text = "search for some healthy food"
-    inputs = tokenizer(text, padding=True, truncation=True, return_tensors='pt')
-    inputs_v2 = tokenizer_v2(text, padding=True, truncation=True, return_tensors='pt')
+    model = AutoModelForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=3)
+    tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased', num_labels=3)
 
-    model = AutoModelForSequenceClassification.from_pretrained("bert-base-cased", num_labels=3)
-    model_v2 = BertForSequenceClassification.from_pretrained("search_action", num_labels=3)
+    model_v2 = AutoModelForSequenceClassification.from_pretrained('search_action', num_labels=3)
+    tokenizer_v2 = AutoTokenizer.from_pretrained('search_action', num_labels=3)
 
-    predictions = torch.nn.functional.softmax(model(**inputs).logits, dim=-1).cpu().detach().numpy()
+    def compare_results(input_text):
+        inputs = tokenizer(input_text, return_tensors="pt")
+        predicted_class_id = model(**inputs).logits.argmax().item()
 
-    predictions_v2 = torch.nn.functional.softmax(model_v2(**inputs_v2).logits, dim=-1).cpu().detach().numpy()
+        inputs_v2 = tokenizer_v2(input_text, return_tensors="pt")
+        predicted_class_id_v2 = model_v2(**inputs_v2).logits.argmax().item()
 
-    print(predictions, predictions_v2)
+        return {
+            'input_text': input_text,
+            'pre_trained': ActionEnum(predicted_class_id).name,
+            'fine_tuned': ActionEnum(predicted_class_id_v2).name
+        }
+
+    compare_results("send the documentation to the team")
+    compare_results("download the game from store")
+    compare_results("seach for healthy food")
 
 
 if __name__ == '__main__':
