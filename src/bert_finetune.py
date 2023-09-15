@@ -75,3 +75,4 @@ if __name__ == '__main__':
     trainer.evaluate()
 
     trainer.save_model('search_action')
+    tokenizer.save_pretrained('search_action')
