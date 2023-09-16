@@ -70,3 +70,7 @@ def bert_fine_tune():
 
     trainer.save_model('actions_recognizer')
     tokenizer.save_pretrained('actions_recognizer')
+
+
+if __name__ == '__main__':
+    bert_fine_tune()
