@@ -1,1 +1,1 @@
-from .get_model_and_tokenizer import get_model_and_tokenizer
+from .load_model_and_tokenizer import load_model_and_tokenizer

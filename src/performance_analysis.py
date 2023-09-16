@@ -1,5 +1,5 @@
 from libs.recognize_action import recognize_action
-from libs.transformers_ import get_model_and_tokenizer
+from libs.transformers_ import load_model_and_tokenizer
 
 
 def performance_analysis():
@@ -8,8 +8,8 @@ def performance_analysis():
     The function is used to compare the action reorganization by the pre-trained model and fine-tuned model
 
     """
-    model, tokenizer = get_model_and_tokenizer('bert-base-uncased', 3)
-    model_v2, tokenizer_v2 = get_model_and_tokenizer('actions-recognizer', 3)
+    model, tokenizer = load_model_and_tokenizer('bert-base-uncased', 3)
+    model_v2, tokenizer_v2 = load_model_and_tokenizer('actions-recognizer', 3)
 
     def compare_results(input_text):
         res = recognize_action(model, tokenizer, input_text)

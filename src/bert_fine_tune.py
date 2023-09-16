@@ -5,7 +5,7 @@ import torch
 from sklearn.model_selection import train_test_split
 from transformers import TrainingArguments, Trainer
 
-from libs.transformers_ import get_model_and_tokenizer
+from libs.transformers_ import load_model_and_tokenizer
 
 
 # noinspection PyUnresolvedReferences
@@ -45,7 +45,7 @@ def splitting_and_tokenize_data(x, y, tokenizer):
 
 def bert_fine_tune():
     data = pd.read_csv('data/dataset_v3.csv')
-    model, tokenizer = get_model_and_tokenizer('bert-base-uncased', 3)
+    model, tokenizer = load_model_and_tokenizer('bert-base-uncased', 3)
 
     x_train_tokenized, x_val_tokenized, y_train, y_val = splitting_and_tokenize_data(list(data["text"]),
                                                                                      list(data["label"]), tokenizer)
