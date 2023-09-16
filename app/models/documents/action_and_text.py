@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from app.models.enums import ActionEnum
+from models.enums import ActionEnum
 
 
 class ActionAndText(BaseModel):
