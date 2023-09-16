@@ -11,6 +11,7 @@ def recognize_action(model, tokenizer, text: str) -> ActionAndText:
         text:the input text in which we need recognize the action
 
     Returns:
+        The function return the recognized action along with the given text
 
     """
     inputs = tokenizer(text, return_tensors="pt")
