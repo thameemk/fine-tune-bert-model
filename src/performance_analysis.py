@@ -26,5 +26,5 @@ def performance_analysis():
 
 
 if __name__ == '__main__':
-    res = performance_analysis()
-    print(res)
+    resp = performance_analysis()
+    print(resp)
