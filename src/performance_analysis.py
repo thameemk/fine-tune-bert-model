@@ -9,7 +9,7 @@ def performance_analysis():
 
     """
     model, tokenizer = get_model_and_tokenizer('bert-base-uncased', 3)
-    model_v2, tokenizer_v2 = get_model_and_tokenizer('actions-recognizer', 3)
+    model_v2, tokenizer_v2 = get_model_and_tokenizer('actions_recognizer', 3)
 
     def compare_results(input_text):
         res = recognize_action(model, tokenizer, input_text)
@@ -26,4 +26,5 @@ def performance_analysis():
 
 
 if __name__ == '__main__':
-    performance_analysis()
+    res = performance_analysis()
+    print(res)
