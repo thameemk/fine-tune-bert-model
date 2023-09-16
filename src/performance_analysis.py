@@ -1,7 +1,6 @@
 import enum
 
-from transformers import AutoTokenizer, AutoModelForSequenceClassification, BertForSequenceClassification, Trainer
-import torch
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 
 class ActionEnum(enum.Enum):
