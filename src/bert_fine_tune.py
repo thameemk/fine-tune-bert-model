@@ -68,8 +68,8 @@ def bert_fine_tune():
 
     trainer.evaluate()
 
-    trainer.save_model('actions_recognizer')
-    tokenizer.save_pretrained('actions_recognizer')
+    trainer.save_model('actions-recognizer')
+    tokenizer.save_pretrained('actions-recognizer')
 
 
 if __name__ == '__main__':
