@@ -9,7 +9,7 @@ def performance_analysis():
 
     """
     model, tokenizer = load_model_and_tokenizer('bert-base-uncased', 3)
-    model_v2, tokenizer_v2 = load_model_and_tokenizer('actions-recognizer', 3)
+    model_v2, tokenizer_v2 = load_model_and_tokenizer('thameemk/actions-recognizer', 3)
 
     def compare_results(input_text):
         res = recognize_action(model, tokenizer, input_text)
