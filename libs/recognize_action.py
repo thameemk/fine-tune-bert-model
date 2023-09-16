@@ -15,9 +15,19 @@ def recognize_action(model, tokenizer, text: str) -> ActionAndText:
 
     """
     inputs = tokenizer(text, return_tensors="pt")
-    predicted_class_id = model(**inputs).logits.argmax().item()
+    predicted_label_id = model(**inputs).logits.argmax().item()
+
+    match predicted_label_id:
+        case 0:
+            action = ActionEnum.SEARCH
+        case 1:
+            action = ActionEnum.SEND
+        case 3:
+            action = ActionEnum.DOWNLOAD
+        case _:
+            raise ValueError("Unknown Action")
 
     return ActionAndText(
         text=text,
-        action=ActionEnum(predicted_class_id)
+        action=action
     )
