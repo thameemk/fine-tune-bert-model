@@ -7,6 +7,7 @@ import evaluate
 
 
 # creating torch dataset
+# noinspection PyUnresolvedReferences
 class Dataset(torch.utils.data.Dataset):
     def __init__(self, encodings, labels=None):
         self.encodings = encodings
@@ -29,11 +30,6 @@ def compute_metrics(eval_pred):
     return metric.compute(predictions=predictions, references=labels)
 
 
-def load_data(file_path: str):
-    # load custom dataset from csv file
-    return pd.read_csv(file_path)
-
-
 def get_model_and_tokenizer(model_name: str, num_of_labels: int):
     _tokenizer = AutoTokenizer.from_pretrained(model_name)
     _model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=num_of_labels)
@@ -50,7 +46,7 @@ def splitting_and_tokenize_data(x, y, tokenizer):
 
 
 if __name__ == '__main__':
-    data = load_data('data/dataset_v3.csv')
+    data = pd.read_csv('data/dataset_v3.csv')
     model, tokenizer = get_model_and_tokenizer('bert-base-uncased', 3)
 
     x_train_tokenized, x_val_tokenized, y_train, y_val = splitting_and_tokenize_data(list(data["text"]),
@@ -74,5 +70,5 @@ if __name__ == '__main__':
 
     trainer.evaluate()
 
-    trainer.save_model('search_action')
-    tokenizer.save_pretrained('search_action')
+    trainer.save_model('actions_recognizer')
+    tokenizer.save_pretrained('actions_recognizer')
