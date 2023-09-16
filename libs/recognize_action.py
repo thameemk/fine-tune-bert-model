@@ -22,7 +22,7 @@ def recognize_action(model, tokenizer, text: str) -> ActionAndText:
             action = ActionEnum.SEARCH
         case 1:
             action = ActionEnum.SEND
-        case 3:
+        case 2:
             action = ActionEnum.DOWNLOAD
         case _:
             raise ValueError("Unknown Action")
