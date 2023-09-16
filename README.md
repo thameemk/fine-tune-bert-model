@@ -28,7 +28,7 @@ Output: search
    pipenv install
     ```
 
-## Run Backend Application & Fine Tuning
+## Run Backend Application & Fine-Tuning
 
 
 if you are using Pycharm, utilize the run configurations directly from the .run folder
