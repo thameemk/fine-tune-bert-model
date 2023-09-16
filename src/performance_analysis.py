@@ -1,33 +1,24 @@
-import enum
-
-from transformers import AutoTokenizer, AutoModelForSequenceClassification, BertForSequenceClassification, Trainer
-import torch
-
-
-class ActionEnum(enum.Enum):
-    SEARCH = 0
-    SEND = 1
-    DOWNLOAD = 2
+from libs.recognize_action import recognize_action
+from libs.transformers_ import load_model_and_tokenizer
 
 
 def performance_analysis():
-    model = AutoModelForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=3)
-    tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased', num_labels=3)
+    """
 
-    model_v2 = AutoModelForSequenceClassification.from_pretrained('search_action', num_labels=3)
-    tokenizer_v2 = AutoTokenizer.from_pretrained('search_action', num_labels=3)
+    The function is used to compare the action reorganization by the pre-trained model and fine-tuned model
+
+    """
+    model, tokenizer = load_model_and_tokenizer('bert-base-uncased', 3)
+    model_v2, tokenizer_v2 = load_model_and_tokenizer('actions-recognizer', 3)
 
     def compare_results(input_text):
-        inputs = tokenizer(input_text, return_tensors="pt")
-        predicted_class_id = model(**inputs).logits.argmax().item()
-
-        inputs_v2 = tokenizer_v2(input_text, return_tensors="pt")
-        predicted_class_id_v2 = model_v2(**inputs_v2).logits.argmax().item()
+        res = recognize_action(model, tokenizer, input_text)
+        res_v2 = recognize_action(model_v2, tokenizer_v2, input_text)
 
         return {
             'input_text': input_text,
-            'pre_trained': ActionEnum(predicted_class_id).name,
-            'fine_tuned': ActionEnum(predicted_class_id_v2).name
+            'pre_trained': res.action.name,
+            'fine_tuned': res_v2.action.name
         }
 
     return [compare_results("send the documentation to the team"), compare_results("download the game from store"),
@@ -35,4 +26,5 @@ def performance_analysis():
 
 
 if __name__ == '__main__':
-    performance_analysis()
+    resp = performance_analysis()
+    print(resp)

@@ -1,13 +1,19 @@
+import evaluate
+import numpy as np
 import pandas as pd
 import torch
-from transformers import AutoTokenizer, AutoModelForSequenceClassification, TrainingArguments, Trainer
 from sklearn.model_selection import train_test_split
-import numpy as np
-import evaluate
+from transformers import TrainingArguments, Trainer
+
+from libs.transformers_ import load_model_and_tokenizer
 
 
-# creating torch dataset
+# noinspection PyUnresolvedReferences
 class Dataset(torch.utils.data.Dataset):
+    """
+    # creating torch dataset
+    """
+
     def __init__(self, encodings, labels=None):
         self.encodings = encodings
         self.labels = labels
@@ -29,18 +35,6 @@ def compute_metrics(eval_pred):
     return metric.compute(predictions=predictions, references=labels)
 
 
-def load_data(file_path: str):
-    # load custom dataset from csv file
-    return pd.read_csv(file_path)
-
-
-def get_model_and_tokenizer(model_name: str, num_of_labels: int):
-    _tokenizer = AutoTokenizer.from_pretrained(model_name)
-    _model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=num_of_labels)
-
-    return _model, _tokenizer
-
-
 def splitting_and_tokenize_data(x, y, tokenizer):
     x_train, x_val, y_train, y_val = train_test_split(x, y, test_size=0.2, stratify=y)
     x_train_tokenized = tokenizer(x_train, padding=True, truncation=True, max_length=512)
@@ -49,9 +43,9 @@ def splitting_and_tokenize_data(x, y, tokenizer):
     return x_train_tokenized, x_val_tokenized, y_train, y_val
 
 
-if __name__ == '__main__':
-    data = load_data('data/dataset_v3.csv')
-    model, tokenizer = get_model_and_tokenizer('bert-base-uncased', 3)
+def bert_fine_tune():
+    data = pd.read_csv('data/dataset_v3.csv')
+    model, tokenizer = load_model_and_tokenizer('bert-base-uncased', 3)
 
     x_train_tokenized, x_val_tokenized, y_train, y_val = splitting_and_tokenize_data(list(data["text"]),
                                                                                      list(data["label"]), tokenizer)
@@ -74,5 +68,9 @@ if __name__ == '__main__':
 
     trainer.evaluate()
 
-    trainer.save_model('search_action')
-    tokenizer.save_pretrained('search_action')
+    trainer.save_model('actions-recognizer')
+    tokenizer.save_pretrained('actions-recognizer')
+
+
+if __name__ == '__main__':
+    bert_fine_tune()

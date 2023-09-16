@@ -1,25 +1,14 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
 
-
-class SearchQuery(BaseModel):
-    query: str
-    context: str | None = None
-
-
-class SearchQueryResponse(BaseModel):
-    query: str
-    result: str
-    context: str | None = None
-
+from libs.recognize_action import recognize_action
+from libs.transformers_ import load_model_and_tokenizer
+from models.documents import ActionAndText, RecognizeActionInput
 
 app = FastAPI()
+model, tokenizer = load_model_and_tokenizer('thameemk/actions-recognizer', 3)
 
 
-@app.post("/query/")
-def read_root(search_query: SearchQuery) -> SearchQueryResponse:
-    return SearchQueryResponse(
-        query=search_query.query,
-        context=search_query.context,
-        result=""
-    )
+@app.post("/recognize_action/")
+def read_root(text: RecognizeActionInput) -> ActionAndText:
+    res = recognize_action(model, tokenizer, text.text)
+    return res
