@@ -1,5 +1,5 @@
-from app.models.documents import ActionAndText
-from app.models.enums import ActionEnum
+from models.documents import ActionAndText
+from models.enums import ActionEnum
 
 
 def recognize_action(model, tokenizer, text: str) -> ActionAndText:
