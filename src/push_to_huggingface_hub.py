@@ -1,8 +1,5 @@
-import os
-
 from libs.transformers_ import load_model_and_tokenizer
-
-HUGGING_FACE_ACCESS_TOKEN = os.environ.get('HUGGING_FACE_ACCESS_TOKEN')
+from settings import HUGGING_FACE_ACCESS_TOKEN
 
 
 def push_to_huggingface_hub():
